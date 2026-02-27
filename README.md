@@ -1,97 +1,88 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# PeopleMade: Mini Product Explorer
 
-# Getting Started
+A React Native application for exploring products, managing favorites, and authenticating users, built to meet the specified technical requirements.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## Local Installation Guidelines 
 
-## Step 1: Start Metro
+1. **Navigate to the project directory:**
+   ```bash
+   cd PeopleMade
+   ```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+3. **Configure Environment Variables:**
+   Rename `.env.sample` to `.env` (or create a new `.env` file) and ensure it contains:
+   ```env
+   AUTH_API_URL=https://dummyjson.com
+   PRODUCT_API_URL=https://fakestoreapi.com
+   ```
+4. **Start the application:**
+   - **For Android:**
+     ```bash
+     npm run android
+     ```
+   - **For iOS (Requires macOS):**
+     ```bash
+     cd ios && pod install && cd ..
+     npm run ios
+     ```
+5. **Error Handling:**
+   If you encounter any setup or environment errors, run:
+   ```bash
+   npx react-native doctor
+   ```
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## Features
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+### Authentication
+- **Login Screen:** Username and password fields with Zod validation (username required, password min 6 chars).
+- **API Integration:** Authenticates via DummyJSON (`POST /auth/login`).
+- **State Management:** Redux handles `auth.token`, `auth.isLoggedIn`, `auth.loading`, and `auth.error`.
+- **Session Persistence:** Token is stored in `AsyncStorage` to automatically log users back in across app restarts.
 
-```sh
-# Using npm
-npm start
+### Product Listing (Home)
+- **API Integration:** Fetches data from FakeStoreAPI (`GET /products`).
+- **Display Overview:** Renders product image, title, price, and category.
+- **Functionality:** 
+  - Text search by title (includes input debouncing for performance).
+  - Category filtering via scrollable tabs.
+  - Pull-to-refresh mechanism.
+  - Loading indicators and error states with a dedicated retry option.
+- **State Management:** Redux handles `products.items`, `products.filteredItems`, `products.loading`, `products.error`, `products.searchQuery`, and `products.selectedCategory`.
 
-# OR using Yarn
-yarn start
-```
+### Product Details
+- **User Interface:** Presented using a native bottom sheet instead of a standard screen transition.
+- **Details Displayed:** Shows full image, title, price, category, description, and star rating.
+- **Actions:** Contains a toggle button to add or remove the item from favorites.
 
-## Step 2: Build and run your app
+### Favorites
+- **Saved List:** Displays all favorited products in a separate tab.
+- **Management:** Users can remove items from their favorites directly. Includes empty state handling.
+- **State Management:** Redux handles `favorites.items`.
+- **Data Persistence:** Favorites list is continuously synced to `AsyncStorage`.
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+## Folder Structure
 
-### Android
+The application relies on a feature-based architecture to separate concerns and keep the codebase predictable:
 
-```sh
-# Using npm
-npm run android
+- `src/app/` - React Navigation configurations (Stacks and bottom tabs).
+- `src/app-root/` - Global wrappers, providers, and initialization logic (`App.tsx`).
+- `src/features/` - Isolated business domains (`auth`, `products`, `favorites`). Each contains its own local components, screens, services, and types.
+- `src/redux/` - Global store configuration and the individual state slices.
+- `src/shared/` - Reusable cross-domain code (Axios client, UI constants, generic hooks, custom Toast, and Zod schemas).
 
-# OR using Yarn
-yarn android
-```
+## Key Decisions
 
-### iOS
+1. **Feature-Based Organization:** Grouping files by domain (e.g., placing product-specific components inside the `products` feature folder) helps maintain separation of concerns better than grouping all components globally in a single directory.
+2. **State Hydration:** The app blocks rendering the main navigation stack until `AsyncStorage` finishes loading the authentication token and favorites data. This prevents the user from seeing a disjointed flash of the login screen before reaching the home page.
+3. **Single Root Navigator:** To avoid native state mismatches when logging out, the app completely avoids unmounting navigator trees. Instead, it relies on a single Native Stack and uses `initialRouteName` to securely control flow based on the login state.
+4. **Derived Filtering State:** Redux only stores the raw array of API products, the search query string, and the target category. The actual filtered product array is computed locally in the view layer via pure functions and memoized. This simplifies reducers and avoids storing redundant data subsets in the global store.
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+## Tech Stack
+- React Native CLI
+- Redux Toolkit & React-Redux
+- React Navigation
+- Axios
+- TanStack React Form & Zod
