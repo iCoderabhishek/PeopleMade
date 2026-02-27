@@ -8,7 +8,8 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
-    "dev": "npx react-native run-android"
+    "dev": "npx react-native run-android",
+    "doctor": "npx react-native doctor"
   },
   "dependencies": {
     "@gorhom/bottom-sheet": "^5.2.8",
