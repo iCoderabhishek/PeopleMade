@@ -76,7 +76,7 @@ function AnimatedTabBar({ state, descriptors, navigation }: any) {
 export function MainTabsNavigator() {
   return (
     <Tab.Navigator
-      tabBar={AnimatedTabBar}
+      tabBar={(props) => <AnimatedTabBar {...props} />}
       screenOptions={{ headerShown: false }}
     >
       <Tab.Screen
