@@ -1,6 +1,6 @@
 # PeopleMade: Mini Product Explorer
 
-A React Native application for exploring products, managing favorites, and authenticating users, built to meet the specified technical requirements.
+A React Native application (assignment) for exploring products, managing favorites, and authenticating users, built to meet the specified technical requirements.
 
 ## Local Installation Guidelines 
 
@@ -34,6 +34,9 @@ A React Native application for exploring products, managing favorites, and authe
    npx react-native doctor
    ```
 
+## APK LINK
+[Release APK link click here](https://drive.google.com/drive/folders/1LaTTSinyRqY8pYdfPH9vyt_2jsTFTAHU?usp=sharing)
+(Or go to `android\app\build\outputs\apk\release` of this repo)
 ## Features
 
 ### Authentication
