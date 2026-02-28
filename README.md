@@ -2,6 +2,11 @@
 
 A React Native application (assignment) for exploring products, managing favorites, and authenticating users, built to meet the specified technical requirements.
 
+## Demo 
+
+[![Watch the demo](https://img.youtube.com/vi/buyU3jeBhCk/maxresdefault.jpg)](https://www.youtube.com/watch?v=buyU3jeBhCk)
+
+
 ## Screenshorts
 <p align="center">
   <img src="https://github.com/user-attachments/assets/07103fd2-bebf-4e0f-be92-54cc6d463194" width="230"/>
