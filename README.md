@@ -2,6 +2,20 @@
 
 A React Native application (assignment) for exploring products, managing favorites, and authenticating users, built to meet the specified technical requirements.
 
+## Screenshorts
+![Screenshot_2026-03-01-01-59-50-951_com peoplemade](https://github.com/user-attachments/assets/1520ce43-fb03-4cc8-9e9d-7d4bda954e1b)
+
+![Screenshot_2026-03-01-01-59-58-159_com peoplemade](https://github.com/user-attachments/assets/dfb51ec5-e328-4a3f-bca3-c5bf7a7059d4![Screenshot_2026-03-01-02-00-03-490_com peoplemade](https://github.com/user-attachments/assets/84ab26e1-96ff-403b-9753-9a298d327575)
+)
+![Screenshot_2026-03-01-02-00-15-619_com peoplemade](https://github.com/user-attachments/assets/71326204-efcb-4f89-b125-62db23881ba0)![Screenshot_2026-03-01-02-00-40-459_com peoplemade](https://github.com/user-attachments/assets/40262040-f669-4ff8-bf10-77bd6763138e)
+
+
+## Folder Structure Diagram![Screenshot_2026-03-01-01-59-37-735_com peoplemade](https://github.com/user-attachments/assets/de78024c-7bb4-![Screenshot_2026-03-01-02-00-20-333_com peoplemade](https://github.com/user-attachments/assets/8fb6245a-4ec9-42d1-a3dc-18358315ec8e)
+4776-b27c-97e8![Screenshot_2026-03-01-02-00-11-022_com peoplemade](https://github.com/user-attachments/assets/1e781061-593d-49a8-a149-2f1ee6ca0dc9)
+b4447324)
+
+<img width="400" height="800" alt="image" src="https://github.com/user-attachments/assets/4c86e6d5-bff2-48e5-9235-276aa4be6e13" />
+
 ## Local Installation Guidelines 
 
 1. **Navigate to the project directory:**
