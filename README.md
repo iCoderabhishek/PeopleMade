@@ -19,11 +19,11 @@ A React Native application (assignment) for exploring products, managing favorit
   <img src="https://github.com/user-attachments/assets/e6a29ee5-0f46-4406-8352-11de667f03ff" width="230"/>
 </p>
 
-## Folder Structure Diagram![Screenshot_2026-03-01-01-59-37-735_com peoplemade](https://github.com/user-attachments/assets/de78024c-7bb4-![Screenshot_2026-03-01-02-00-20-333_com peoplemade](https://github.com/user-attachments/assets/8fb6245a-4ec9-42d1-a3dc-18358315ec8e)
-4776-b27c-97e8![Screenshot_2026-03-01-02-00-11-022_com peoplemade](https://github.com/user-attachments/assets/1e781061-593d-49a8-a149-2f1ee6ca0dc9)
-b4447324)
+## Folder Structure Diagram
 
-<img width="400" height="800" alt="image" src="https://github.com/user-attachments/assets/4c86e6d5-bff2-48e5-9235-276aa4be6e13" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/9c01843f-0fba-4809-abd3-917bf3ac101d" 
+</p>
 
 ## Local Installation Guidelines 
 
