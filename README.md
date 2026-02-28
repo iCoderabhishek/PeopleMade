@@ -1,4 +1,4 @@
-![Screenshot_2026-03-01-02-00-15-619_com peoplemade](https://github.com/user-attachments/assets/743483b0-55d2-412c-b7b2-3dcb55e19401)# PeopleMade: Mini Product Explorer
+## PeopleMade: Mini Product Explorer | Assignment
 
 A React Native application (assignment) for exploring products, managing favorites, and authenticating users, built to meet the specified technical requirements.
 
