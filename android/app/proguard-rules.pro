@@ -8,3 +8,38 @@
 #   http://developer.android.com/guide/developing/tools/proguard.html
 
 # Add any project specific keep options here:
+
+# React Native Reanimated
+-keep class com.swmansion.reanimated.** { *; }
+-keep class com.facebook.react.turbomodule.** { *; }
+
+# React Native Gesture Handler
+-keep class com.swmansion.gesturehandler.** { *; }
+-dontwarn com.swmansion.gesturehandler.**
+
+# React Native Screens
+-keep class com.swmansion.rnscreens.** { *; }
+
+# Hermes engine
+-keep class com.facebook.hermes.unicode.** { *; }
+-keep class com.facebook.jni.** { *; }
+
+# React Native SVG
+-keep public class com.horcrux.svg.** { *; }
+
+# Bottom Sheet (Gorhom)
+-keep class com.gorhom.bottomsheet.** { *; }
+
+# AsyncStorage
+-keep class com.reactnativecommunity.asyncstorage.** { *; }
+
+# Keep native methods
+-keepclassmembers class * {
+    @com.facebook.react.uimanager.annotations.ReactProp <methods>;
+}
+-keepclassmembers class * {
+    @com.facebook.react.uimanager.annotations.ReactPropGroup <methods>;
+}
+
+# Prevent R8 from stripping interface information
+-keep,allowobfuscation,allowshrinking interface *

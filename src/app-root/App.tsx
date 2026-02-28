@@ -4,6 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Provider } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { enableScreens } from 'react-native-screens';
 
 import { store } from '../redux/store';
@@ -61,17 +62,19 @@ export default function App() {
   }
 
   return (
-    <Provider store={store}>
-      <SafeAreaProvider>
-        <StatusBar barStyle={'light-content'} />
-        <ToastProvider>
-          <TabBarVisibilityProvider>
-            <NavigationContainer>
-              <AppNavigator />
-            </NavigationContainer>
-          </TabBarVisibilityProvider>
-        </ToastProvider>
-      </SafeAreaProvider>
-    </Provider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <Provider store={store}>
+        <SafeAreaProvider>
+          <StatusBar barStyle={'light-content'} />
+          <ToastProvider>
+            <TabBarVisibilityProvider>
+              <NavigationContainer>
+                <AppNavigator />
+              </NavigationContainer>
+            </TabBarVisibilityProvider>
+          </ToastProvider>
+        </SafeAreaProvider>
+      </Provider>
+    </GestureHandlerRootView>
   );
 }

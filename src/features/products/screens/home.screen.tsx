@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect, useMemo } from 'react'
+import React, { useState, useCallback, useEffect, useMemo, useRef } from 'react'
 import { FlatList, ActivityIndicator, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
@@ -10,6 +10,7 @@ import { ProductCard } from '../components/product-card'
 import { SignoutModal } from '../components/signout-modal'
 import { ProductDetailsSheet } from './product-details.screen'
 import { ErrorState } from '@/shared/components/error-state'
+import { useToast } from '@/shared/components/toast'
 import { useDebouncedValue } from '@/shared/hooks/use-debounced-value'
 import { useAppSelector, useAppDispatch } from '@/shared/hooks/use-redux'
 import { toggleFavorite } from '@/redux/slices/favorites.slice'
@@ -32,6 +33,7 @@ export function HomeScreen() {
   const [refreshing, setRefreshing] = useState(false)
 
   const dispatch = useAppDispatch()
+  const { showToast } = useToast()
   const { items, filteredItems, loading, error, selectedCategory } =
     useAppSelector((state) => state.products)
 
@@ -42,7 +44,7 @@ export function HomeScreen() {
   )
 
   useEffect(() => {
-    dispatch(fetchProductsAsync())
+    fetchRef.current = dispatch(fetchProductsAsync())
   }, [dispatch])
 
   useEffect(() => {
@@ -71,7 +73,8 @@ export function HomeScreen() {
   const handleSignout = useCallback(() => {
     setMenuVisible(false)
     dispatch(logout())
-  }, [dispatch])
+    showToast('Signed out successfully', { type: 'success' })
+  }, [dispatch, showToast])
 
   const handleProductPress = useCallback((product: Product) => {
     setSelectedProduct(product)
@@ -88,8 +91,14 @@ export function HomeScreen() {
     [dispatch],
   )
 
+  const fetchRef = useRef<any>(null)
+
   const handleRetry = useCallback(() => {
-    dispatch(fetchProductsAsync())
+    // Abort any previous pending request before retrying
+    if (fetchRef.current) {
+      fetchRef.current.abort()
+    }
+    fetchRef.current = dispatch(fetchProductsAsync())
   }, [dispatch])
 
   const renderItem = useCallback(
