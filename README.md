@@ -1,14 +1,23 @@
-# PeopleMade: Mini Product Explorer
+![Screenshot_2026-03-01-02-00-15-619_com peoplemade](https://github.com/user-attachments/assets/743483b0-55d2-412c-b7b2-3dcb55e19401)# PeopleMade: Mini Product Explorer
 
 A React Native application (assignment) for exploring products, managing favorites, and authenticating users, built to meet the specified technical requirements.
 
 ## Screenshorts
-![Screenshot_2026-03-01-01-59-50-951_com peoplemade](https://github.com/user-attachments/assets/1520ce43-fb03-4cc8-9e9d-7d4bda954e1b)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/07103fd2-bebf-4e0f-be92-54cc6d463194" width="230"/>
+  <img src="https://github.com/user-attachments/assets/96d0dfc4-2cb2-44d9-974d-d2ef6c0b947f" width="230"/>
+  <img src="https://github.com/user-attachments/assets/2f1c64fe-396c-44d2-81b2-a903e6b15eed" width="230"/>
+</p>
 
-![Screenshot_2026-03-01-01-59-58-159_com peoplemade](https://github.com/user-attachments/assets/dfb51ec5-e328-4a3f-bca3-c5bf7a7059d4![Screenshot_2026-03-01-02-00-03-490_com peoplemade](https://github.com/user-attachments/assets/84ab26e1-96ff-403b-9753-9a298d327575)
-)
-![Screenshot_2026-03-01-02-00-15-619_com peoplemade](https://github.com/user-attachments/assets/71326204-efcb-4f89-b125-62db23881ba0)![Screenshot_2026-03-01-02-00-40-459_com peoplemade](https://github.com/user-attachments/assets/40262040-f669-4ff8-bf10-77bd6763138e)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/989d10c3-7ec4-4fa9-b452-126846b0ca2b" width="230"/>
+  <img src="https://github.com/user-attachments/assets/20274327-880e-4f5e-9802-76d1710cff1b" width="230"/>
+  <img src="https://github.com/user-attachments/assets/c71f4037-894c-4c23-bef9-acd6cf5509b6" width="230"/>
+</p>
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/e6a29ee5-0f46-4406-8352-11de667f03ff" width="230"/>
+</p>
 
 ## Folder Structure Diagram![Screenshot_2026-03-01-01-59-37-735_com peoplemade](https://github.com/user-attachments/assets/de78024c-7bb4-![Screenshot_2026-03-01-02-00-20-333_com peoplemade](https://github.com/user-attachments/assets/8fb6245a-4ec9-42d1-a3dc-18358315ec8e)
 4776-b27c-97e8![Screenshot_2026-03-01-02-00-11-022_com peoplemade](https://github.com/user-attachments/assets/1e781061-593d-49a8-a149-2f1ee6ca0dc9)
