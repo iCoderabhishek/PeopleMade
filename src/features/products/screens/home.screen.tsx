@@ -38,6 +38,8 @@ export function HomeScreen() {
     useAppSelector((state) => state.products)
 
   const favoriteItems = useAppSelector((state) => state.favorites.items)
+  const cartItems = useAppSelector((state) => state.cart.items)
+  const cartCount = cartItems.reduce((sum, i) => sum + i.quantity, 0)
   const favoriteIds = useMemo(
     () => new Set(favoriteItems.map((p) => p.id)),
     [favoriteItems],
@@ -84,6 +86,12 @@ export function HomeScreen() {
     setSelectedProduct(null)
   }, [])
 
+  const handleCartPress = useCallback(() => {
+    if (cartItems.length > 0) {
+      setSelectedProduct(cartItems[cartItems.length - 1].product)
+    }
+  }, [cartItems])
+
   const handleFavoritePress = useCallback(
     (product: Product) => {
       dispatch(toggleFavorite(product))
@@ -120,7 +128,7 @@ export function HomeScreen() {
 
   const listHeader = (
     <>
-      <Header onMenuPress={toggleMenu} cartCount={0} />
+      <Header onMenuPress={toggleMenu} cartCount={cartCount} onCartPress={handleCartPress} />
       <HeroSection />
       <SearchBar value={searchText} onChangeText={setSearchText} />
       {items.length > 0 && (

@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useMemo, useRef } from 'react'
 import { Dimensions, StyleSheet } from 'react-native'
 import GorhomBottomSheet, {
   BottomSheetBackdrop,
-  BottomSheetView,
+  BottomSheetScrollView,
   type BottomSheetBackdropProps,
 } from '@gorhom/bottom-sheet'
 import { COLORS, BORDER_RADIUS } from '@/shared/constants/theme'
@@ -67,9 +67,9 @@ export function BottomSheet({
       handleIndicatorStyle={styles.handle}
       backgroundStyle={styles.background}
     >
-      <BottomSheetView style={styles.content}>
+      <BottomSheetScrollView style={styles.content}>
         {children}
-      </BottomSheetView>
+      </BottomSheetScrollView>
     </GorhomBottomSheet>
   )
 }
@@ -88,7 +88,6 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    overflow: 'hidden',
   },
 })
 

@@ -13,6 +13,7 @@ import { TabBarVisibilityProvider } from '@/shared/contexts/tab-bar-visibility';
 import { ToastProvider } from '@/shared/components/toast';
 import { restoreAuth } from '../redux/slices/auth.slice';
 import { restoreFavorites } from '../redux/slices/favorites.slice';
+import { restoreCart } from '../redux/slices/cart.slice';
 
 enableScreens();
 
@@ -24,12 +25,16 @@ export default function App() {
       try {
         const authData = await AsyncStorage.getItem('auth');
         const favoritesData = await AsyncStorage.getItem('favorites');
+        const cartData = await AsyncStorage.getItem('cart');
 
         if (authData) {
           store.dispatch(restoreAuth(JSON.parse(authData)));
         }
         if (favoritesData) {
           store.dispatch(restoreFavorites(JSON.parse(favoritesData)));
+        }
+        if (cartData) {
+          store.dispatch(restoreCart(JSON.parse(cartData)));
         }
       } catch (e) {
         console.error('Failed to hydrate state', e);
@@ -52,6 +57,7 @@ export default function App() {
         })
       );
       AsyncStorage.setItem('favorites', JSON.stringify(state.favorites.items));
+      AsyncStorage.setItem('cart', JSON.stringify(state.cart.items));
     });
 
     return unsubscribe;

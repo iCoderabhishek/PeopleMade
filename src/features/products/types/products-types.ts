@@ -68,6 +68,7 @@ export type ProductImageViewerProps = {
 export type HeaderProps = {
   onMenuPress: () => void
   cartCount?: number
+  onCartPress?: () => void
 }
 
 export type CollapsibleSectionProps = {

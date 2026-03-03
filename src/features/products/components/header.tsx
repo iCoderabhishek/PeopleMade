@@ -9,7 +9,7 @@ import {
 } from '@/shared/constants/theme'
 import { HeaderProps } from '../types/products-types'
 
-export function Header({ onMenuPress }: HeaderProps) {
+export function Header({ onMenuPress, cartCount = 0, onCartPress }: HeaderProps) {
   return (
     <View style={styles.container}>
       <TouchableOpacity
@@ -22,13 +22,26 @@ export function Header({ onMenuPress }: HeaderProps) {
         <View style={styles.menuLine} />
       </TouchableOpacity>
 
-      <View >
+      <View>
         <Text style={styles.logoText}>People Made</Text>
       </View>
 
-      <TouchableOpacity>
-        <Text>     { }    </Text>
-      </TouchableOpacity>
+      {cartCount > 0 ? (
+        <TouchableOpacity
+          style={styles.cartButton}
+          onPress={onCartPress}
+          hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+        >
+          <Text style={styles.cartIcon}>{'\uD83D\uDED2'}</Text>
+          <View style={styles.badge}>
+            <Text style={styles.badgeText}>
+              {cartCount > 99 ? '99+' : cartCount}
+            </Text>
+          </View>
+        </TouchableOpacity>
+      ) : (
+        <View style={styles.cartPlaceholder} />
+      )}
     </View>
   )
 }
@@ -55,27 +68,40 @@ const styles = StyleSheet.create({
   menuLineMiddle: {
     width: 16,
   },
-  logoBadge: {
-    backgroundColor: COLORS.accent,
-    paddingHorizontal: SPACING.lg,
-    paddingVertical: SPACING.xs + 2,
-    borderRadius: BORDER_RADIUS.md,
-  },
   logoText: {
     fontSize: FONT_SIZES.lg,
     fontWeight: '700',
     color: COLORS.overlay,
     fontFamily: FONTS.hero,
     letterSpacing: 0.8,
-    textTransform: 'capitalize'
+    textTransform: 'capitalize',
   },
   cartButton: {
     padding: SPACING.sm,
+    position: 'relative',
   },
-  cartText: {
+  cartIcon: {
+    fontSize: FONT_SIZES.xl,
+  },
+  badge: {
+    position: 'absolute',
+    top: 2,
+    right: 0,
+    backgroundColor: COLORS.accent,
+    borderRadius: BORDER_RADIUS.full,
+    minWidth: 18,
+    height: 18,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 4,
+  },
+  badgeText: {
     fontSize: FONT_SIZES.xs,
-    fontWeight: '500',
+    fontWeight: '700',
     color: COLORS.primary,
-    letterSpacing: 1.5,
+  },
+  cartPlaceholder: {
+    width: 36,
+    height: 36,
   },
 })
