@@ -12,6 +12,10 @@
 # React Native Reanimated
 -keep class com.swmansion.reanimated.** { *; }
 -keep class com.facebook.react.turbomodule.** { *; }
+-keep class com.facebook.react.fabric.** { *; }
+
+# React Native Worklets
+-keep class com.swmansion.worklets.** { *; }
 
 # React Native Gesture Handler
 -keep class com.swmansion.gesturehandler.** { *; }
